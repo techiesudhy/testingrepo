@@ -1,24 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: myapp-deployment
+  name: mywebsitefrnd
   labels:
-    app: myapp
-    type: front-end
+    app: mywebsite_1_frnt
 spec:
   replicas: 3
   selector:
     matchLabels:
-      type: front-end
+      app: mywebsite_1_frnt
   template:
     metadata:
-      name: myapp-prod
       labels:
-        app: myapp
-        type: front-end
+        app: mywebsite_1_frnt
     spec:
       containers:
-        - name: todoapp
-          image: kubekode/react-todo-list-app
-          ports:
-            - containerPort: 80
+      - name: mywebsitefrnd
+        image: ksudhy/website:v1
+        ports:
+        - containerPort: 80
